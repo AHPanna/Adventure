@@ -15,6 +15,12 @@ foreach($lines as $ligne){
     echo $ligne."<br>";
 }
 */
+
+$pieces = explode("-", $lines[1]);
+echo $pieces[0]."<br>"; // piece1
+echo $pieces[1]."<br>"; // piece2
+echo $pieces[2]."<br>"; // piece3
+
   $remove = array(" ");
   $remove1 = array("-");
   echo "<pre>";
