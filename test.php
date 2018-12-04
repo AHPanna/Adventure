@@ -9,6 +9,9 @@ echo $lines[1]."<br>";
 echo $lines[2]."<br>";
 echo $lines[3]."<br>";
 
+
+qsqs
+
 /*
 //afficher chaques ligne
 foreach($lines as $ligne){
