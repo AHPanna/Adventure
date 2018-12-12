@@ -7,7 +7,6 @@ require("src/header.php");
 require("main.php");
 
 
-
 //ne pas toucher
 require("src/footer.php");
 ?>

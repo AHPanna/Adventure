@@ -68,16 +68,18 @@ print_r($run_command);
     //compteur commande total
     $compt_com=count($run_command);
     $i=1;
-    while($i<=$compt_com)
+    while($i<=10)
     {
         //checking every aspect of Mountains pre existing in to commands
-        if($run_command[$i][0]=="M")
+        /*if($run_command[$i][0]=="M")
         {   
-            
+
+
 
         }
-    
-        
+     */
+        echo $i."<br>";
+        sleep(2);
         
         
         

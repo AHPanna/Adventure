@@ -2,6 +2,9 @@
 include'src/fonction.php'; //recuperation de la map
 include'src/map.php'; //recuperation des fonctions
 
+//update timing
+//ini_set('max_execution_time', 300);
+
 //global variable
 $temp_lignes = compt_ligne($lines);
 $run_command = cut($temp_lignes);
