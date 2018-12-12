@@ -1,5 +1,12 @@
 C - 3 - 4
 M - 1 - 1
+# - 34
+#commentaire
 M - 2 - 2
 T - 0 - 3 - 2
+# - 1
 T - 1 - 3 - 1
+A - 2 - 1 - 3
+Adventure - Panna - 100
+A​ - Alfred - 1 - 3 - N - AA
+A​ - Indiana - 1 - 1 - S - AA

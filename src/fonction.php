@@ -1,5 +1,10 @@
 <?php
-//fonction compteur permet de retourner la somme total des lignes et commande 
+
+$file = "src/test";
+$lines = file($file,FILE_IGNORE_NEW_LINES);
+
+
+//                  <---------------BETA TESTING---------------->
 function compt_ligne($lines)
 {
     $c_lines=0;
@@ -10,73 +15,93 @@ function compt_ligne($lines)
 return $c_lines;
 }
 
-//fonction permettant de relever le nombre de characters dans un elignes;
-function compteur_ligne($command){
-    $c_command=0;
-   foreach ($command as $c)
+//fonction cut permet de recuperer les données et de speare en plusieurs morceaux 
+function cut($temp_lignes)
+{
+    $file = "src/test";
+    $lines = file($file,FILE_IGNORE_NEW_LINES);
+  
+    //decoupages de mes lignes 
+
+    for($i=0;$i<$temp_lignes;$i++)
     {
-        $c_command++;
-    }
-    return $c_command;
-}
-
-
-//fonction retourne tableau a deux dimension avec les configurations 
-function command(){
-    //fichier source commande
-    $file = "src/command.txt";
-    //etude des lignes
-    $lines = file($file, FILE_IGNORE_NEW_LINES);// [tableau] juste la prmeier ligne
-    //compteur de lignes et commande
-    $c_count_ligne = compt_ligne($lines);
-
-    //ajout des valeurs
-    $wordl = array();
-    $count = 0; 
-    for($x = 0 ; $x < $c_count_ligne ; $x++) {     
-        $world[$x] = $lines[$x]; 
+        //ignore les # et les espace vide du debut
+    if($lines[$i][0]==="#" OR $lines[$i][0]===" ") continue;
+       //remove the '-'
+        $cut_param_unique = explode("-", $lines[$i]);
         
-        $command = str_split($lines[$x]);//[tableau] split en chaque caracteres de mon string
-        $c_count_char=compteur_ligne($command);
-       
-        for($y = 0 ; $y < $c_count_char ; $y++) {
-                $wordl[$x][$y] = $command[$y];
-            }
-         $command[$count++];// incrementation de la ligne
+        //print_r($cut_param_unique);
+        //echo $cut_param_unique[0]."<br>";
+        
+        for($y = 0; $y < count($cut_param_unique); $y++ )
+        {
+
+            $command[$i][$y] = $cut_param_unique[$y]; 
+        }        
     }
-    return $wordl;
- }
+   // echo "<br> my call request for each col X # row Y (input them manually) of array: ".$command[X][Y]."<br>";
+    return $command;
+}
 
 
 
 //fonction injection des valeurs 
 //  save map @param @map[longeur][largeur] @commande[index][key]
-function injection($map,$command){
+function injection($map,$run_command){
    
     //ajout des montagnes
-    if($command[1][0]=='M'){
-       $map[$command[1][2]][$command[1][4]]='M';
+     if($run_command[1][0]!="M"){
+       $map[(int)$run_command[1][1]][(int)$run_command[1][2]]='M';
+     }
+     if($run_command[4][0]!='M'){
+       $map[(int)$run_command[4][1]][(int)$run_command[4][2]]='M';
     }
 
+    if($run_command[5][0]!='T'){
 
-     if($command[2][0]=='M'){
-       $map[$command[2][2]][$command[2][4]]='M';
-    }
-    
-    
-   
-    if($command[3][0]=='T'){
-
-         $map[$command[3][4]][$command[3][2]]='T('.$command[3][6].')';
+         $map[(int)$run_command[5][2]][(int)$run_command[5][1]]='T('.$run_command[5][2].')';
     }
     
-     if($command[4][0]=='T'){
+     if($run_command[7][0]!='T'){
 
-         $map[$command[4][4]][$command[4][2]]='T('.$command[4][6].')';
+         $map[(int)$run_command[7][2]][(int)$run_command[7][1]]='T('.$run_command[7][3].')';
     }
-
-
     return $map;
 }
 
-?>
+//<-----------------------ALPHA TESTING--------------------->
+//fonction retourne les valeur 
+function indexing($map,$run_command)
+{   
+    $i=1;
+    while($i<10){
+    
+        echo "salut<br>";
+        //if(run())
+    
+        $i++;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+echo "<br> <-------DEBUG MODE--------> <br>";
+echo $run_command[1][1]."<br>";
+echo $run_command[1][2]."<br>";
+*/
+
+
+
+

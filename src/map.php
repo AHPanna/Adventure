@@ -15,7 +15,8 @@ function init_map($longeur,$largeur)
     return $wordl; //important le return de la map
 }
 
-
+//                  <---------------Alpha TESTING---------------->
+//do no touch this
 function display($map,$longeur,$largeur)
 {
      for($x_x = 0 ; $x_x < $largeur ; $x_x++)
@@ -27,4 +28,3 @@ function display($map,$longeur,$largeur)
         echo "<br>";
     }
 }
-?>
