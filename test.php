@@ -1,7 +1,6 @@
 <?php
 $file = "src/test";
 $lines = file($file,FILE_IGNORE_NEW_LINES);
-
 //fonction compteur de lignes
 function compt_ligne($lines)
 {
@@ -42,9 +41,6 @@ function cut($temp_lignes)
     return $command;
 }
 
-
-
-
 $temp_lignes = compt_ligne($lines);
 $run_command = cut($temp_lignes);
 //printing value from 2d array returned from command injection
@@ -57,12 +53,8 @@ print_r($run_command);
   echo "<br> before call counts : ". count($run_command)."<br>";
 
 
-
-
-
-
 //<-----------GAMMA PRE TESTING------------->
-
+//still underconstruction
   function indexing($run_command)
 {   
     //compteur commande total
@@ -74,12 +66,10 @@ print_r($run_command);
         /*if($run_command[$i][0]=="M")
         {   
 
-
-
         }
      */
         echo $i."<br>";
-        sleep(2);
+       // sleep(2);
         
         
         
@@ -89,10 +79,3 @@ print_r($run_command);
 }
 //executing the test 
 indexing($run_command);
-
-
-
-
-
-
-

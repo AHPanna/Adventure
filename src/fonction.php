@@ -45,38 +45,49 @@ function cut($temp_lignes)
 
 
 //fonction injection des valeurs 
-//  save map @param @map[longeur][largeur] @commande[index][key]
+//  save map @param @map[longeur][largeur] @run_commande[index][key]
 function injection($map,$run_command){
    
     //ajout des montagnes
-     if($run_command[1][0]!="M"){
-       $map[(int)$run_command[1][1]][(int)$run_command[1][2]]='M';
+     if($run_command[1][0]!="M")
+     {
+       $map[
+           (int)$run_command[1][1]
+           ][
+               (int)$run_command[1][2]
+               ]='M';
      }
-     
-     sleep(10);
-
-     if($run_command[4][0]!='M'){
-       $map[(int)$run_command[4][1]][(int)$run_command[4][2]]='M';
+     if($run_command[4][0]!='M')
+     {
+        $map[
+            (int)$run_command[4][1]
+            ][
+                (int)$run_command[4][2]
+                ]='M';
+     }
+     if($run_command[5][0]!='T')
+     {
+        $map[
+            (int)$run_command[5][2]
+            ][
+                (int)$run_command[5][1]
+                ]='T('.$run_command[5][2].')';
+     }
+     if($run_command[7][0]!='T')
+     {
+        $map[
+            (int)$run_command[7][2]
+            ][
+                (int)$run_command[7][1]
+                ]='T('.$run_command[7][3].')';
     }
-
-   
-
-    if($run_command[5][0]!='T'){
-
-         $map[(int)$run_command[5][2]][(int)$run_command[5][1]]='T('.$run_command[5][2].')';
-    }
-    
-  
-     if($run_command[7][0]!='T'){
-
-         $map[(int)$run_command[7][2]][(int)$run_command[7][1]]='T('.$run_command[7][3].')';
-    }
-   
     return $map;
 }
 
 //<-----------------------ALPHA TESTING--------------------->
 //fonction retourne les valeur 
+//en construction ici le bouton update sera implementé pour les maj de chaque action 
+//elle est configurer sur le fichier js utilisation de module ajax.
 function indexing($map,$run_command)
 {   
     $i=1;
