@@ -1,8 +1,19 @@
 <?php
-$arr = ['Setting Up the map...','Reading youre commands....','Adding all mobs....',' Rising up Adventure','Are you ready ?','Let s Gow.... ','Finished U dead noob'];
+$arr = ['Setting Up the map...','Reading youre commands....','Adding all mobs....',' Rising up Adventure','Are you ready ?','Let s Gow.... '
+,'Finished dead'];
+//$arr2=['.','test','.','.','hey','.','.','suc','.','end'];
+
+//using finishing lines
+
 foreach($arr as $value) {
     session_start();
-    $_SESSION["progress"]=$value;
+    $_SESSION["map"]=$value;//value
+    
     session_write_close();
-    sleep(2);
+    //ob_end_clean();
+    sleep(1);
+    
 }
+flush();
+
+?>
