@@ -73,7 +73,7 @@ class fonction{
          {
             echo "there is aleardy an adventure there !";
          }
-        return FALSE;
+        
      }
      public function injection($run_command)
      {
